@@ -1,33 +1,34 @@
-import React, { Children } from "react";
-import styles from "./button.module.css"
+import React from 'react';
+import styles from './Button.module.css';
 
 interface ButtonProps {
-    children: React.ReactNode;
-    onClick?: () => void;
-    type?: "button" | "submit" | "reset";
-    disabled?: boolean;
-    className?: string;
-    style?: React.CSSProperties;
+  children: React.ReactNode;
+  onClick?: () => void;
+  type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
+  className?: string;
+  style?: React.CSSProperties;
 }
 
 const Button: React.FC<ButtonProps> = ({
-    Children,
-    onClick, 
-    type = "button",
-    disabled = false,
-    className = "",
-    style = {},
+  children,
+  onClick,
+  type = 'button',
+  disabled = false,
+  className = '',
+  style = {},
 }) => {
-    return (
-        <button
-        type={type} 
-        onClick={onClick}
-        disabled={disabled}
-        className={`${style.button}, ${className}`}
-        style={style}
-        >
-        {Children}
-        </button>
-    );
+  return (
+    <button
+      type={type}
+      onClick={onClick}
+      disabled={disabled}
+      className={`${styles.button} ${className}`}
+      style={style}
+    >
+      {children}
+    </button>
+  );
 };
+
 export default Button;
