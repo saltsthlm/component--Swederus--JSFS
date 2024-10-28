@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Children } from "react";
 import styles from "./button.module.css"
 
 interface ButtonProps {
@@ -9,3 +9,25 @@ interface ButtonProps {
     className?: string;
     style?: React.CSSProperties;
 }
+
+const Button: React.FC<ButtonProps> = ({
+    Children,
+    onClick, 
+    type = "button",
+    disabled = false,
+    className = "",
+    style = {},
+}) => {
+    return (
+        <button
+        type={type} 
+        onClick={onClick}
+        disabled={disabled}
+        className={`${style.button}, ${className}`}
+        style={style}
+        >
+        {Children}
+        </button>
+    );
+};
+export default Button;
