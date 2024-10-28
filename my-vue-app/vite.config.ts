@@ -7,6 +7,6 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'jsdom',
-    setupFiles: './src/components/button.tsx', // Path to your setup file
+    setupFiles: './src/components/button/button.tsx',
   },
 });
